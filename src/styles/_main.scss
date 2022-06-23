@@ -190,3 +190,10 @@
   width: 100%;
   border: 0.1rem solid #00000020;
 }
+
+.rating-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  padding-bottom: 8rem;
+}
