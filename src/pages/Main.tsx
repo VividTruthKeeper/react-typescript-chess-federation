@@ -2,12 +2,13 @@
 
 // Components
 import MainSlider from "../components/main/MainSlider";
-import SectionTitle from "../components/global/SectionTitle";
+import EventsSection from "../components/main/EventsSection";
 
 const Main = () => {
   return (
     <section className="main">
       <MainSlider />
+      <EventsSection />
     </section>
   );
 };
