@@ -13,3 +13,9 @@
 .inner-body {
   min-height: 68vh;
 }
+
+body {
+  background: url(../images/body-bg.jpg) repeat center;
+  background-size: cover;
+  background-clip: border-box;
+}
