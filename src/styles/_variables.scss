@@ -1,0 +1,31 @@
+// Colors
+$base-green: #01815e;
+$base-black: #1c1717;
+
+// Flex
+@mixin flex-c {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-spb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Other
+@mixin transition-std {
+  transition: 0.3s all ease;
+}
+
+@mixin arrow-start {
+  transform: rotateX(0deg);
+  @include transition-std();
+}
+
+@mixin arrow-end {
+  transform: rotateX(180deg);
+  @include transition-std();
+}
