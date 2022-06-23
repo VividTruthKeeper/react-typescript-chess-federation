@@ -2,14 +2,13 @@
 import { Link } from "react-router-dom";
 
 // Icons
-import youtube from "../icons/youtube.svg";
-import vk from "../icons/vk.svg";
-import twitter from "../icons/twitter.svg";
-import classmates from "../icons/odnoklassniki.svg";
-import linkedin from "../icons/linkedin.svg";
-import instagram from "../icons/instagram.svg";
-import facebook from "../icons/facebook.svg";
-import { link } from "fs";
+import youtube from "../../icons/youtube.svg";
+import vk from "../../icons/vk.svg";
+import twitter from "../../icons/twitter.svg";
+import classmates from "../../icons/odnoklassniki.svg";
+import linkedin from "../../icons/linkedin.svg";
+import instagram from "../../icons/instagram.svg";
+import facebook from "../../icons/facebook.svg";
 
 const Footer = () => {
   return (

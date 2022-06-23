@@ -5,8 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import "./styles/style.scss";
 
 // Components
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+import Nav from "./components/global/Nav";
+import Footer from "./components/global/Footer";
 
 // Pages
 import Main from "./pages/Main";

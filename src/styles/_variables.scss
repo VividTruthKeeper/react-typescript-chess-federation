@@ -29,3 +29,13 @@ $base-black: #1c1717;
   transform: rotateX(180deg);
   @include transition-std();
 }
+
+@mixin button-end {
+  transform: scale(0.7);
+  @include transition-std();
+}
+
+@mixin button-start {
+  transform: scale(1);
+  @include transition-std();
+}

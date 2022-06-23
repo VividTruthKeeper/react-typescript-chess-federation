@@ -2,8 +2,8 @@
 import { Link } from "react-router-dom";
 
 // Icons
-import mainLogo from "../icons/main_logo.svg";
-import arrow from "../icons/arrow-down-black.svg";
+import mainLogo from "../../icons/main_logo.svg";
+import arrow from "../../icons/arrow-down-black.svg";
 
 const Nav = () => {
   return (
