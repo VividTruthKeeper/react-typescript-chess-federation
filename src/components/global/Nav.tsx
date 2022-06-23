@@ -24,7 +24,7 @@ const Nav = () => {
                 </div>
               </li>
               <li>
-                <Link to={"/"}>Новости и события</Link>
+                <Link to={"/news"}>Новости и события</Link>
               </li>
               <li>
                 <Link to={"/"}>Турниры</Link>

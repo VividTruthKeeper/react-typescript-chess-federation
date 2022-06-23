@@ -10,6 +10,7 @@ import Footer from "./components/global/Footer";
 
 // Pages
 import Main from "./pages/Main";
+import Events from "./pages/Events";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
       <div className="inner-body">
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/news" element={<Events />} />
         </Routes>
       </div>
       <Footer />

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 // Components
 import SectionTitle from "../global/SectionTitle";
-import Event from "./Event";
+import Event from "../global/Event";
 
 // Images
 import competition from "../../images/competition.jpg";
