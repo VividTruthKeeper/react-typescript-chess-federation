@@ -8,3 +8,5 @@ export interface PlayersData {
   rapid: string;
   blitz: string;
 }
+
+// Used in SearchTable.tsx
