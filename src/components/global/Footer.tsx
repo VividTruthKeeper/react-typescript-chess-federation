@@ -24,10 +24,10 @@ const Footer = () => {
                 <Link to={"/"}>События</Link>
               </li>
               <li>
-                <Link to={"/"}>Новости</Link>
+                <Link to={"/news"}>Новости</Link>
               </li>
               <li>
-                <Link to={"/"}>Рейтинг</Link>
+                <Link to={"/rating"}>Рейтинг</Link>
               </li>
               <li>
                 <Link to={"/"}>Партнеры</Link>

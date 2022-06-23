@@ -11,6 +11,7 @@ import Footer from "./components/global/Footer";
 // Pages
 import Main from "./pages/Main";
 import Events from "./pages/Events";
+import Rating from "./pages/Rating";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/news" element={<Events />} />
+          <Route path="/rating" element={<Rating />} />
         </Routes>
       </div>
       <Footer />
