@@ -161,3 +161,32 @@
     font-weight: bold;
   }
 }
+
+// Partners
+.partners-inner {
+  padding-bottom: 16rem;
+}
+
+.partners-content {
+  position: relative;
+  padding-top: 4.8rem;
+}
+
+.slider-next-white {
+  background: transparent;
+}
+
+.slider-next-white-prev {
+  left: -10rem;
+}
+
+.slider-next-white-next {
+  right: -10rem;
+}
+
+.partners-slide {
+  @include flex-c;
+  min-height: 18rem;
+  width: 100%;
+  border: 0.1rem solid #00000020;
+}

@@ -1,6 +1,6 @@
 // Modules
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import { v4 as uuidv4 } from "uuid";
 
@@ -31,9 +31,10 @@ const MainSlider = () => {
   return (
     <section className="main-slider">
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
+        autoplay={{ delay: 3000 }}
         loop={true}
         navigation={{
           nextEl: ".slider-next",
