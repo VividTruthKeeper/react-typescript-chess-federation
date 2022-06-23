@@ -8,12 +8,12 @@ import Partners from "../components/main/PartnersSection";
 
 const Main = () => {
   return (
-    <section className="main">
+    <main className="main">
       <MainSlider />
       <EventsSection />
       <PlayerRating />
       <Partners />
-    </section>
+    </main>
   );
 };
 
