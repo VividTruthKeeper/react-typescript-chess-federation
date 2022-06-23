@@ -34,7 +34,7 @@ const MainSlider = () => {
         modules={[Navigation, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 6000 }}
         loop={true}
         navigation={{
           nextEl: ".slider-next",
