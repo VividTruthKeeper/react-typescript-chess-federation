@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
+import { v4 as uuidv4 } from "uuid";
 
 // Images
 import game from "../../images/slider-img.jpg";
@@ -39,9 +40,9 @@ const MainSlider = () => {
           prevEl: ".slider-prev",
         }}
       >
-        {sliderData.map((slide, id) => {
+        {sliderData.map((slide) => {
           return (
-            <SwiperSlide key={id}>
+            <SwiperSlide key={uuidv4()}>
               <MainSliderSlide
                 slideImg={slide.slideImg}
                 slideLink={slide.slideLink}

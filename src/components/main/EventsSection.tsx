@@ -1,4 +1,5 @@
 // Modules
+import { v4 as uuidv4 } from "uuid";
 
 // Components
 import SectionTitle from "../global/SectionTitle";
@@ -58,10 +59,10 @@ const EventsSection = () => {
         <div className="events-inner">
           <SectionTitle title="События и новости" />
           <div className="events-content">
-            {eventsData.map((evnt, id) => {
+            {eventsData.map((evnt) => {
               return (
                 <Event
-                  key={id}
+                  key={uuidv4()}
                   image={evnt.image}
                   text={evnt.text}
                   time={evnt.time}
