@@ -1,11 +1,13 @@
 // Modules
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 // Icons
 import mainLogo from "../../icons/main_logo.svg";
 import arrow from "../../icons/arrow-down-black.svg";
 
 const Nav = () => {
+  const location = useLocation();
   return (
     <nav className="nav">
       <div className="container">
@@ -23,7 +25,9 @@ const Nav = () => {
                   <img src={arrow} alt="" />
                 </div>
               </li>
-              <li>
+              <li
+                className={location.pathname.includes("news") ? "active" : ""}
+              >
                 <Link to={"/news"}>Новости и события</Link>
               </li>
               <li>

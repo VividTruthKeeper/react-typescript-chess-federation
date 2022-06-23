@@ -25,6 +25,8 @@
   span,
   a {
     font-size: 1.8rem;
+    @include transition-std;
+    color: #000;
   }
 
   li {
@@ -39,6 +41,38 @@
         height: 2.5rem;
         content: "";
         background: $base-green;
+      }
+    }
+
+    &:not(:first-child) {
+      &::before {
+        position: absolute;
+        top: calc(100% + 1rem);
+        right: 0;
+        width: 0;
+        height: 0.1rem;
+        content: "";
+        background: $base-green;
+        @include transition-std;
+      }
+    }
+
+    &.active {
+      a {
+        font-size: 1.9rem;
+        color: $base-green;
+        @include transition-std;
+      }
+      &::before {
+        width: 100%;
+        @include transition-std;
+      }
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+        @include transition-std;
       }
     }
   }
