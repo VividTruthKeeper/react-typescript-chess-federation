@@ -14,6 +14,7 @@ import Events from "./pages/Events";
 import Rating from "./pages/Rating";
 import Profile from "./pages/Profile";
 import EventItem from "./pages/EventItem";
+import Structure from "./pages/Structure";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/rating" element={<Rating />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/event" element={<EventItem />} />
+          <Route path="/structure" element={<Structure />} />
         </Routes>
       </div>
       <Footer />
