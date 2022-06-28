@@ -8,6 +8,7 @@ import competition3 from "../images/competition3.jpg";
 
 // Components
 import Event from "../components/global/Event";
+import SectionTitle from "../components/global/SectionTitle";
 
 // Types
 import { eventProps } from "../types/eventProps";
@@ -91,18 +92,21 @@ const Events = () => {
   return (
     <main className="events-page">
       <div className="container">
-        <div className="events-page-inner">
-          {eventsData.map((evnt) => {
-            return (
-              <Event
-                key={uuidv4()}
-                image={evnt.image}
-                text={evnt.text}
-                time={evnt.time}
-                date={evnt.date}
-              />
-            );
-          })}
+        <div className="event-page-wrapper">
+          <SectionTitle title={"События и новости"} />
+          <div className="events-page-inner">
+            {eventsData.map((evnt) => {
+              return (
+                <Event
+                  key={uuidv4()}
+                  image={evnt.image}
+                  text={evnt.text}
+                  time={evnt.time}
+                  date={evnt.date}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </main>
