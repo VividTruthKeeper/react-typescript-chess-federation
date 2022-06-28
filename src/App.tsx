@@ -12,6 +12,7 @@ import Footer from "./components/global/Footer";
 import Main from "./pages/Main";
 import Events from "./pages/Events";
 import Rating from "./pages/Rating";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/" element={<Main />} />
           <Route path="/news" element={<Events />} />
           <Route path="/rating" element={<Rating />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
       <Footer />
