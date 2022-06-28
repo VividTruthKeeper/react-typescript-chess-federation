@@ -1,8 +1,8 @@
 // Modules
 import { Link } from "react-router-dom";
 
-// Icons
-import divider from "../../icons/divider.svg";
+// Components
+import EventDate from "./EventDate";
 
 // Types
 import { eventProps } from "../../types/eventProps";
@@ -14,13 +14,7 @@ const Event = ({ image, time, date, text }: eventProps) => {
         <div className="event-img">
           <img src={image} alt="" />
         </div>
-        <div className="event-date">
-          <span className="event-time">{time}</span>
-          <span className="event-divider">
-            <img src={divider} alt="" />
-          </span>
-          <span className="event-day">{date}</span>
-        </div>
+        <EventDate time={time} date={date} />
       </div>
       <div className="event-bottom">
         <p>{text}</p>

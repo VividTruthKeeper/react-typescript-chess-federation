@@ -1,7 +1,10 @@
-export interface eventProps {
-  image: string;
+export interface eventTimeProps {
   time: string;
   date: string;
+}
+
+export interface eventProps extends eventTimeProps {
+  image: string;
   text: string;
 }
 
