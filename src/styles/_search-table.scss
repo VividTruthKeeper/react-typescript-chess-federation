@@ -25,10 +25,9 @@
 }
 
 .search-button {
+  @include button-std(0, 1.7rem, $scaled: false);
   height: 100%;
   min-width: 24rem;
-  padding: 1.7rem 0;
-  background: $base-green;
   color: #fff;
   font-size: 1.8rem;
   cursor: pointer;

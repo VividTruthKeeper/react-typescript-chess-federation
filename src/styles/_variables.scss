@@ -41,3 +41,25 @@ $hover-green: #0e654e;
   transform: scale(1);
   @include transition-std();
 }
+
+@mixin button-std($border-radius, $padding, $scaled) {
+  padding: $padding;
+  border-radius: $border-radius;
+  background: $base-green;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+
+  @if $scaled {
+    @include button-start;
+
+    &:active {
+      @include button-end;
+    }
+  }
+
+  &:hover {
+    background: $hover-green;
+    @include transition-std;
+  }
+}

@@ -38,8 +38,12 @@ const Nav = () => {
               >
                 <Link to={"/rating"}>Рейтинг</Link>
               </li>
-              <li>
-                <Link to={"/"}>Контакты</Link>
+              <li
+                className={
+                  location.pathname.includes("contact") ? "active" : ""
+                }
+              >
+                <Link to={"/contact"}>Контакты</Link>
               </li>
             </ul>
           </div>

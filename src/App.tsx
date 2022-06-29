@@ -15,6 +15,7 @@ import Rating from "./pages/Rating";
 import Profile from "./pages/Profile";
 import EventItem from "./pages/EventItem";
 import Structure from "./pages/Structure";
+import Contacts from "./pages/Contact";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/event" element={<EventItem />} />
           <Route path="/structure" element={<Structure />} />
+          <Route path="/contact" element={<Contacts />} />
         </Routes>
       </div>
       <Footer />
