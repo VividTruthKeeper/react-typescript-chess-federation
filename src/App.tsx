@@ -16,6 +16,7 @@ import Profile from "./pages/Profile";
 import EventItem from "./pages/EventItem";
 import Structure from "./pages/Structure";
 import Contacts from "./pages/Contact";
+import Calendar from "./components/global/Calendar";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/event" element={<EventItem />} />
           <Route path="/structure" element={<Structure />} />
           <Route path="/contact" element={<Contacts />} />
+          <Route path="/calendar" element={<Calendar />} />
         </Routes>
       </div>
       <Footer />
