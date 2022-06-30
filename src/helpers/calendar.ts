@@ -129,7 +129,16 @@ const days: string[] = [
   "Sunday",
 ];
 
-export const daysLocale: string[] = ["Пн", "Вт", "Ср", "Чт", "Пн", "Сб", "Вс"];
+export const years: number[] = [
+  date.getFullYear() - 2,
+  date.getFullYear() - 1,
+  date.getFullYear(),
+  date.getFullYear() + 1,
+  date.getFullYear() + 2,
+  date.getFullYear() + 3,
+];
+
+export const daysLocale: string[] = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
 const getFirstDayOfMonth = (year: number, month: number) => {
   return new Date(year, month, 1).getDay();
@@ -139,12 +148,19 @@ export const generateDateMatrix = (year: number) => {
   let out: Object[] = [];
   months.forEach((month) => {
     let values: string[] = [];
+
     Array.from({ length: month.days }, (_, i) => i + 1).forEach((el, i) => {
       values.push(
         `${el}-${
           getFirstDayOfMonth(year, month.number - 1) !== 0
             ? days[(getFirstDayOfMonth(year, month.number - 1) - 1 + i) % 7]
             : days[(days.length - 1 + i) % 7]
+        }-${
+          getFirstDayOfMonth(year, month.number - 1) === 0
+            ? Math.floor((i + 6) / 7)
+            : Math.floor(
+                (i + getFirstDayOfMonth(year, month.number - 1) - 1) / 7
+              )
         }`
       );
     });
@@ -161,51 +177,27 @@ export const stringSep = (string: string) => {
   return string.split("-") as string[];
 };
 
+export const matchMonthNumber = (month: string): number => {
+  return monthsEng.indexOf(month);
+};
+
 export const matchDayNumber = (day: string): number => {
-  if (day === days[0]) {
-    return 1;
-  } else if (day === days[1]) {
-    return 2;
-  } else if (day === days[2]) {
-    return 3;
-  } else if (day === days[3]) {
-    return 4;
-  } else if (day === days[4]) {
-    return 5;
-  } else if (day === days[5]) {
-    return 6;
-  } else if (day === days[6]) {
-    return 7;
-  } else {
-    return 0;
-  }
+  return days.indexOf(day) + 1;
 };
 
 export const matchDateToDay = (array: string[]) => {
-  const placeholder = [0, 0, 0, 0, 0, 0, 0];
-  const mondays: number[] = Array.from(placeholder);
-  const tuesdays: number[] = Array.from(placeholder);
-  const wednesdays: number[] = Array.from(placeholder);
-  const thursdays: number[] = Array.from(placeholder);
-  const fridays: number[] = Array.from(placeholder);
-  const saturdays: number[] = Array.from(placeholder);
-  const sundays: number[] = Array.from(placeholder);
-  const months: number[][] = [
-    mondays,
-    tuesdays,
-    wednesdays,
-    thursdays,
-    fridays,
-    saturdays,
-    sundays,
-  ];
+  const placeholder: number[] = [0, 0, 0, 0, 0, 0, 0];
+  const row1: number[] = Array.from(placeholder);
+  const row2: number[] = Array.from(placeholder);
+  const row3: number[] = Array.from(placeholder);
+  const row4: number[] = Array.from(placeholder);
+  const row5: number[] = Array.from(placeholder);
+  const row6: number[] = Array.from(placeholder);
+  const months: number[][] = [row1, row2, row3, row4, row5, row6];
 
-  array.forEach((el, i) => {
+  array.forEach((el) => {
     const data = stringSep(el);
-    console.log(i % 7);
-    // console.log(data);
-    // console.log(matchDayNumber(data[1]));
-    months[matchDayNumber(data[1]) - 1][i % 7] = parseInt(data[0]);
+    months[parseInt(data[2])][matchDayNumber(data[1]) - 1] = parseInt(data[0]);
   });
 
   return months;
