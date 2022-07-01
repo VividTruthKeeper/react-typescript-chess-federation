@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+
+  tbody {
+    display: flex;
+    flex-direction: column;
+
+    tr {
+      order: 100000000000;
+    }
+  }
 }
 
 .search-field {
@@ -51,6 +60,7 @@
     }
 
     &.table-header {
+      order: -9999999999;
       background: $base-green;
       color: #fff;
     }
