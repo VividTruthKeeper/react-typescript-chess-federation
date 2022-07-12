@@ -10,15 +10,23 @@ import linkedin from "../../icons/linkedin.svg";
 import instagram from "../../icons/instagram.svg";
 import facebook from "../../icons/facebook.svg";
 
-const Footer = () => {
+// Types
+import { dropdown } from "../../types/dropdown";
+
+const Footer = ({ dropdown, setDropdown }: dropdown) => {
   return (
     <footer className="footer">
       <div className="footer-top">
         <div className="container">
           <div className="footer-top-inner">
             <ul>
-              <li>
-                <Link to={"/"}>О нас</Link>
+              <li
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  setDropdown(true);
+                }}
+              >
+                <span>О нас</span>
               </li>
               <li>
                 <Link to={"/"}>События</Link>

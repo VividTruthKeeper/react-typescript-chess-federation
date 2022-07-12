@@ -1,5 +1,6 @@
 // Modules
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 // Styles
 import "./styles/style.scss";
@@ -19,9 +20,15 @@ import Contacts from "./pages/Contact";
 import Calendar from "./components/global/Calendar";
 
 const App = () => {
+  // Types
+  type drop = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+
+  // State
+  const [dropdown, setDropdown]: drop = useState(false);
+
   return (
     <div className="App">
-      <Nav />
+      <Nav dropdown={dropdown} setDropdown={setDropdown} />
       <div className="inner-body">
         <Routes>
           <Route path="/" element={<Main />} />
@@ -34,7 +41,7 @@ const App = () => {
           <Route path="/calendar" element={<Calendar />} />
         </Routes>
       </div>
-      <Footer />
+      <Footer dropdown={dropdown} setDropdown={setDropdown} />
     </div>
   );
 };

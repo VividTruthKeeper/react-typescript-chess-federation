@@ -27,6 +27,9 @@
     font-size: 1.8rem;
     @include transition-std;
     color: #000;
+    &.active {
+      color: $base-green;
+    }
   }
 
   li {
@@ -98,9 +101,15 @@
   gap: 1rem;
 
   .arrow {
+    // fill: black;
     width: 2rem;
     height: 2rem;
     @include arrow-start;
+
+    &.active {
+      fill: $base-green;
+      @include arrow-end;
+    }
   }
 }
 

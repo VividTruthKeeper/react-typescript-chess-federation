@@ -1,17 +1,18 @@
 // Modules
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
 
 // Icons
 import mainLogo from "../../icons/main_logo.svg";
-import arrow from "../../icons/arrow-down-black.svg";
+// import arrow from "../../icons/arrow-down-black.svg";
+import { ReactComponent as Arrow } from "../../icons/arrow-down-black.svg";
 
-const Nav = () => {
-  // Types
-  type drop = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+// Types
+import { dropdown } from "../../types/dropdown";
+
+const Nav = ({ dropdown, setDropdown }: dropdown) => {
   const location = useLocation();
-  const [dropdown, setDropdown]: drop = useState(false);
+
   return (
     <nav className="nav">
       <div className="container">
@@ -29,9 +30,9 @@ const Nav = () => {
                   setDropdown((initial) => !initial);
                 }}
               >
-                <span>О нас</span>
-                <div className="arrow">
-                  <img src={arrow} alt="" />
+                <span className={dropdown ? "active" : ""}>О нас</span>
+                <div className={dropdown ? "arrow active" : "arrow"}>
+                  <Arrow className="arrow" />
                 </div>
                 <ul
                   className={
