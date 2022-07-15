@@ -7,23 +7,21 @@ import arrowNext from "../../icons/arrow-right-white.svg";
 // Types
 import { SlideProps } from "../../types/mainSliderSlide";
 
-const MainSliderSlide = ({
-  slideImg,
-  slideTitle,
-  slideText,
-  slideLink,
-}: SlideProps) => {
+// URL
+import { hosting } from "../../links";
+
+const MainSliderSlide = ({ id, img, header, txt }: SlideProps) => {
   return (
-    <div className="swiper-slide-inner">
+    <div className="swiper-slide-inner" id={id + ""}>
       <div className="swiper-bg">
-        <img src={slideImg} alt="" />
+        <img src={hosting + img} alt="" />
       </div>
       <div className="swiper-slide-content">
         <div className="container">
           <div className="swiper-slider-content-inner">
-            <h3>{slideTitle}</h3>
-            <p>{slideText}</p>
-            <Link to={slideLink}>
+            <h3>{header}</h3>
+            <p>{txt}</p>
+            <Link to={""}>
               <span>Click the button</span>
               <div>
                 <img src={arrowNext} alt="" />

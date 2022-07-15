@@ -2,23 +2,38 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import { v4 as uuidv4 } from "uuid";
+import { useState, useEffect } from "react";
 
 // Components
 import SectionTitle from "../global/SectionTitle";
-
-// Images
-import tps from "../../images/tps.jpg";
-import samsung from "../../images/samsung.jpg";
-import mi from "../../images/mi.jpg";
-import dragon from "../../images/do.jpg";
 
 // Icons
 import arrowPrev from "../../icons/arrow-left-green.svg";
 import arrowNext from "../../icons/arrow-right-green.svg";
 
-const partnersData: string[] = [tps, samsung, mi, dragon];
+// URL
+import { hosting } from "../../links";
+
+// Types
+import { partnersType } from "../../types/partnersType";
+
+// Helpers
+import { getPartnerSliderData } from "../../helpers/apiRequests";
+
+// const partnersData: string[] = [tps, samsung, mi, dragon];
 
 const Partners = () => {
+  // State
+  const [partnerData, setPartnerData]: [
+    partnersType[],
+    React.Dispatch<React.SetStateAction<partnersType[]>>
+  ] = useState([{ id: 0, note: "", partner: "" }]);
+
+  // Effect
+  useEffect(() => {
+    getPartnerSliderData(setPartnerData);
+  }, []);
+
   return (
     <section className="partners">
       <div className="container">
@@ -36,15 +51,17 @@ const Partners = () => {
                 prevEl: ".slider-prev",
               }}
             >
-              {partnersData.map((image) => {
-                return (
-                  <SwiperSlide key={uuidv4()}>
-                    <div className="partners-slide">
-                      <img src={image} alt="" />
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
+              {partnerData
+                ? partnerData.map((image: partnersType) => {
+                    return (
+                      <SwiperSlide key={uuidv4()}>
+                        <div className="partners-slide">
+                          <img src={hosting + image.partner} alt="" />
+                        </div>
+                      </SwiperSlide>
+                    );
+                  })
+                : ""}
             </Swiper>
             <div className="slider-prev slider-next-white slider-next-white-prev">
               <img src={arrowPrev} alt="" />
