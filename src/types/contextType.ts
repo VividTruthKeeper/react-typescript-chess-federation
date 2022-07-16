@@ -1,0 +1,1 @@
+export type loaderType = any;

@@ -1,4 +1,5 @@
 // Modules
+import { useEffect } from "react";
 
 // Images
 import magnus from "../images/magnus.jpg";
@@ -6,6 +7,9 @@ import magnus from "../images/magnus.jpg";
 // Link: /profile
 
 const Profile = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="profile">
       <div className="container">

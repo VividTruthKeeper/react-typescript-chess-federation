@@ -1,4 +1,5 @@
 // Modules
+import { useEffect } from "react";
 
 // Components
 import MainSlider from "../components/main/MainSlider";
@@ -7,6 +8,9 @@ import PlayerRating from "../components/main/PlayerRatingSection";
 import Partners from "../components/main/PartnersSection";
 
 const Main = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="main">
       <MainSlider />

@@ -1,4 +1,5 @@
 // Modules
+import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // Components
@@ -50,6 +51,9 @@ const personData: personProps[] = [
 // Link: /structure
 
 const Structure = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="structure">
       <div className="container">

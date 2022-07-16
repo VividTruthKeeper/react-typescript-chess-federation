@@ -1,5 +1,6 @@
 // Modules
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 // Components
 import SectionTitle from "../components/global/SectionTitle";
@@ -12,6 +13,9 @@ import firouzja from "../images/firouzja.jpg";
 import zhu from "../images/zhu.jpg";
 
 const Rating = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="rating">
       <div className="container">

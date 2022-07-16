@@ -1,3 +1,11 @@
-export const hosting = "http://tkf.com.tm";
-export const sliderDataUrl = hosting + "/api/v1/sliders";
-export const partners = hosting + "/api/v1/partners";
+export const hosting: string = "http://tkf.com.tm";
+export const sliderDataUrl: string = hosting + "/api/v1/sliders";
+export const partners: string = hosting + "/api/v1/partners";
+export const postsMain: string =
+  hosting + "/api/v1/posts?locale=ru&per_page=6&sort_order=asc";
+
+export const postsAll: string =
+  hosting + "/api/v1/posts?locale=ru&per_page=15&sort_order=asc";
+
+export const postsAside: string =
+  hosting + "/api/v1/posts?locale=ru&per_page=4&sort_order=asc";

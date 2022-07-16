@@ -1,111 +1,129 @@
 // Modules
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-// Images
-import competition from "../images/competition.jpg";
-import competition2 from "../images/competition2.jpg";
-import competition3 from "../images/competition3.jpg";
+// Icons
+import left from "../icons/arrow-left-white.svg";
+import right from "../icons/arrow-right-white.svg";
 
 // Components
 import Event from "../components/global/Event";
 import SectionTitle from "../components/global/SectionTitle";
+import EventSkeleton from "../components/global/EventSkeleton";
 
 // Types
-import { eventProps } from "../types/eventProps";
+import { eventType } from "../types/eventProps";
 
-const eventsData: eventProps[] = [
-  {
-    image: competition,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition2,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition3,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition2,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition3,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition2,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition3,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition2,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-  {
-    image: competition3,
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    time: "02:58",
-    date: "16.12.2021",
-  },
-];
+// Helpers
+import { getAllPosts } from "../helpers/apiRequests";
 
 const Events = () => {
+  // State
+  const [events, setEvents]: eventType = useState({
+    data: [
+      {
+        id: -1,
+        title: "",
+        published_at: "",
+        featured_images: [
+          {
+            id: -1,
+            path: "",
+          },
+        ],
+        content_html: "",
+      },
+    ],
+    links: {
+      prev: null,
+      next: null,
+    },
+    meta: {
+      current_page: -1,
+      total: -1,
+    },
+    loaded: false,
+  });
+
+  useEffect(() => {
+    getAllPosts(setEvents);
+  }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className="events-page">
       <div className="container">
         <div className="event-page-wrapper">
           <SectionTitle title={"События и новости"} />
           <div className="events-page-inner">
-            {eventsData.map((evnt) => {
-              return (
-                <Event
-                  key={uuidv4()}
-                  image={evnt.image}
-                  text={evnt.text}
-                  time={evnt.time}
-                  date={evnt.date}
-                />
-              );
-            })}
+            {events.loaded
+              ? events.data.map((evnt) => {
+                  return (
+                    <Event
+                      key={uuidv4()}
+                      image={evnt.featured_images[0].path}
+                      title={evnt.title}
+                      time={"00:00"}
+                      date={evnt.published_at}
+                      content={evnt.content_html}
+                    />
+                  );
+                })
+              : [
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                  "",
+                ].map(() => <EventSkeleton key={uuidv4()} />)}
+          </div>
+          <div className="events-page-bottom">
+            <div className="events-page-nav">
+              <div className="events-page-nav-left">
+                <button
+                  type="button"
+                  className="events-page-btn"
+                  disabled={events.meta.current_page < 2 ? true : false}
+                >
+                  <img src={left} alt="" />
+                </button>
+                <span className="event-page-number">
+                  {events.meta.current_page}
+                </span>
+                <button
+                  type="button"
+                  className="events-page-btn"
+                  disabled={
+                    events.meta.current_page === events.meta.total - 1
+                      ? true
+                      : false
+                  }
+                >
+                  <img src={right} alt="" />
+                </button>
+              </div>
+              <div className="events-page-nav-right">
+                <span>{`Всего ${events.meta.total - 1} ${
+                  events.meta.total - 1 === 1
+                    ? "страница"
+                    : events.meta.total - 1 < 5
+                    ? "страницы"
+                    : "страниц"
+                }`}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

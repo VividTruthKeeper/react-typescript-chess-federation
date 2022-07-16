@@ -1,3 +1,4 @@
 import { createContext } from "react";
+import { loaderType } from "../types/contextType";
 
-export const LoaderContext = createContext({});
+export const EventContext = createContext<loaderType | null>(null);

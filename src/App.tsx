@@ -1,7 +1,7 @@
 // Modules
 import { Routes, Route } from "react-router-dom";
 import { useState, useMemo } from "react";
-import { LoaderContext } from "./context/LoaderContext";
+import { EventContext } from "./context/LoaderContext";
 
 // Styles
 import "./styles/style.scss";
@@ -9,6 +9,9 @@ import "./styles/style.scss";
 // Components
 import Nav from "./components/global/Nav";
 import Footer from "./components/global/Footer";
+
+// Type
+import { loaderType } from "./types/contextType";
 
 // Pages
 import Main from "./pages/Main";
@@ -23,20 +26,19 @@ import Calendar from "./components/global/Calendar";
 const App = () => {
   // Types
   type drop = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
-  type loaderType = [boolean, React.Dispatch<React.SetStateAction<boolean>>];
 
   // State
   const [dropdown, setDropdown]: drop = useState(false);
-  const [loader, setLoader]: loaderType = useState(false);
+  const [eventData, setEventData]: loaderType = useState(null);
 
   // Stack state into Memo
   const loaderValue = useMemo(
-    () => ({ loader, setLoader }),
-    [loader, setLoader]
+    () => ({ eventData, setEventData }),
+    [eventData, setEventData]
   );
 
   return (
-    <LoaderContext.Provider value={loaderValue}>
+    <EventContext.Provider value={loaderValue}>
       <div className="App">
         <Nav dropdown={dropdown} setDropdown={setDropdown} />
         <div className="inner-body">
@@ -53,7 +55,7 @@ const App = () => {
         </div>
         <Footer dropdown={dropdown} setDropdown={setDropdown} />
       </div>
-    </LoaderContext.Provider>
+    </EventContext.Provider>
   );
 };
 

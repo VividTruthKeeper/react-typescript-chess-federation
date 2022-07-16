@@ -1,4 +1,5 @@
 // Modules
+import { useEffect } from "react";
 
 // Icons
 import bg from "../icons/green-bg.svg";
@@ -7,6 +8,9 @@ import bg from "../icons/green-bg.svg";
 import ContactForm from "../components/contact/ContactForm";
 
 const Contacts = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="contact">
       <div className="contact-bg">
