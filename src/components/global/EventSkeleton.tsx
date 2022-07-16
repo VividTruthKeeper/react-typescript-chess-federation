@@ -1,6 +1,6 @@
 const EventSkeleton = () => {
   return (
-    <a className="event skeleton">
+    <div className="event skeleton">
       <div className="event-top">
         <div className="event-img"></div>
         <p></p>
@@ -8,7 +8,7 @@ const EventSkeleton = () => {
       <div className="event-bottom">
         <p></p>
       </div>
-    </a>
+    </div>
   );
 };
 
