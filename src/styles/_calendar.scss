@@ -1,6 +1,6 @@
 .calendar {
-  padding: 10rem;
-  max-width: 62rem;
+  align-self: center;
+  max-width: 36rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -90,7 +90,7 @@
   tbody {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 2rem;
   }
   th {
     color: $base-green;
@@ -99,7 +99,8 @@
     pointer-events: none;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 3.2rem;
+    justify-content: space-between;
+    gap: 2rem;
 
     * {
       font-size: 1.8rem;

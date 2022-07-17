@@ -21,7 +21,6 @@ import Profile from "./pages/Profile";
 import EventItem from "./pages/EventItem";
 import Structure from "./pages/Structure";
 import Contacts from "./pages/Contact";
-import Calendar from "./components/global/Calendar";
 
 const App = () => {
   // Types
@@ -50,7 +49,6 @@ const App = () => {
             <Route path="/event/:eventId" element={<EventItem />} />
             <Route path="/structure" element={<Structure />} />
             <Route path="/contact" element={<Contacts />} />
-            <Route path="/calendar" element={<Calendar />} />
           </Routes>
         </div>
         <Footer dropdown={dropdown} setDropdown={setDropdown} />

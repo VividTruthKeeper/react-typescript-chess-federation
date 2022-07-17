@@ -1,16 +1,12 @@
 // Modules
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import { v4 as uuidv4 } from "uuid";
 
-// Icons
-import arrowPrev from "../../icons/arrow-left-white.svg";
-import arrowNext from "../../icons/arrow-right-white.svg";
-
 // Components
 import VideoPlayer from "../global/VideoPlayer";
+import Calendar from "../global/Calendar";
 
 // Types
 import { playerType } from "../../types/playerType";
@@ -68,6 +64,9 @@ const CalendarSection = () => {
                     })}
               </Swiper>
             </div>
+          </div>
+          <div className="calendars-right">
+            <Calendar />
           </div>
         </div>
       </div>

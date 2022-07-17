@@ -3,7 +3,7 @@ const EventContentSkeleton = () => {
     <div className="eventitem-content skeleton">
       <div className="eventitem-top">
         <p></p>
-        <h2></h2>
+        <p className="big"></p>
       </div>
       <div className="eventitem-bottom">
         <div className="eventitem-img"></div>
