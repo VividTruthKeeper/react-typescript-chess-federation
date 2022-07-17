@@ -11,6 +11,7 @@ import {
   postsAll,
   postsAside,
   post,
+  videos,
 } from "../links";
 import React from "react";
 
@@ -81,4 +82,13 @@ export const getEvent = (
         setLoader(false);
       }, 1000);
     });
+};
+
+export const getVideos = (setState: any) => {
+  axios
+    .get(videos)
+    .then((res) => {
+      setState(res.data.data);
+    })
+    .catch();
 };

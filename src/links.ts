@@ -11,3 +11,5 @@ export const postsAside: string =
   hosting + "/api/v1/posts?locale=ru&per_page=4&sort_order=asc";
 
 export const post: string = hosting + "/api/v1/posts"; // /id ? locale
+
+export const videos: string = hosting + "/api/v1/videos";

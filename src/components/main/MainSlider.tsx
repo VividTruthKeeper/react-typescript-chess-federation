@@ -1,12 +1,9 @@
 // Modules
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
-import { useState, useEffect, useMemo } from "react";
 import "swiper/css";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-
-// Images
-import game from "../../images/slider-img.jpg";
 
 // Icons
 import arrowPrev from "../../icons/arrow-left-white.svg";
