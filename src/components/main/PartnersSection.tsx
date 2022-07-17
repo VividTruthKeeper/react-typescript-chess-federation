@@ -27,7 +27,7 @@ const Partners = () => {
   const [partnerData, setPartnerData]: [
     partnersType[],
     React.Dispatch<React.SetStateAction<partnersType[]>>
-  ] = useState([{ id: 0, note: "", partner: "" }]);
+  ] = useState([{ id: -1, note: "", partner: "" }]);
 
   // Effect
   useEffect(() => {
@@ -51,7 +51,7 @@ const Partners = () => {
                 prevEl: ".slider-prev",
               }}
             >
-              {partnerData
+              {partnerData[0].id > -1
                 ? partnerData.map((image: partnersType) => {
                     return (
                       <SwiperSlide key={uuidv4()}>
@@ -61,7 +61,13 @@ const Partners = () => {
                       </SwiperSlide>
                     );
                   })
-                : ""}
+                : ["", "", "", "", "", ""].map(() => {
+                    return (
+                      <SwiperSlide key={uuidv4()}>
+                        <div className="partners-slide skeleton"></div>
+                      </SwiperSlide>
+                    );
+                  })}
             </Swiper>
             <div className="slider-prev slider-next-white slider-next-white-prev">
               <img src={arrowPrev} alt="" />

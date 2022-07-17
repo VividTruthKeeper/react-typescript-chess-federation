@@ -139,7 +139,14 @@
   @include flex-c;
   min-height: 18rem;
   width: 100%;
+  background: #fff;
   border: 0.1rem solid #00000020;
+
+  &.skeleton {
+    @include shineLoad;
+    height: 18rem;
+    width: 100%;
+  }
 }
 
 .rating-inner {

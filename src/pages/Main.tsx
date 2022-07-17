@@ -9,7 +9,7 @@ import Partners from "../components/main/PartnersSection";
 
 const Main = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, []);
   return (
     <main className="main">
