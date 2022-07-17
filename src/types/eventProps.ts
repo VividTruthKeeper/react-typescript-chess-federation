@@ -35,11 +35,11 @@ export interface eventProps {
 export type eventType = [eventProps, React.Dispatch<any>];
 
 export interface eventProp {
+  id: number;
   image: string;
   title: string;
   time: string;
   date: string;
-  content: string;
 }
 
 // Used in EventsSection.tsx and its' child component Event.tsx

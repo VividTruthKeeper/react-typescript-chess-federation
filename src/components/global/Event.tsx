@@ -1,7 +1,5 @@
 // Modules
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { EventContext } from "../../context/LoaderContext";
 
 // Components
 import EventDate from "./EventDate";
@@ -9,32 +7,9 @@ import EventDate from "./EventDate";
 // Types
 import { eventProp } from "../../types/eventProps";
 
-const Event = ({ image, time, date, title, content }: eventProp) => {
-  const { setEventData } = useContext(EventContext);
+const Event = ({ id, image, time, date, title }: eventProp) => {
   return (
-    <Link
-      to={"/event"}
-      className="event"
-      onClick={() => {
-        localStorage.setItem(
-          "event",
-          JSON.stringify({
-            image: image,
-            time: time,
-            date: date,
-            title: title,
-            content: content,
-          })
-        );
-        setEventData({
-          image: image,
-          time: time,
-          date: date,
-          title: title,
-          content: content,
-        });
-      }}
-    >
+    <Link to={`/event/${id}`} className="event">
       <div className="event-top">
         <div className="event-img">
           <img src={image} alt="" />

@@ -56,11 +56,11 @@ const EventsSection = () => {
                   return (
                     <Event
                       key={uuidv4()}
+                      id={evnt.id}
                       image={evnt.featured_images[0].path}
                       title={evnt.title}
                       time={"00:00"}
                       date={evnt.published_at}
-                      content={evnt.content_html}
                     />
                   );
                 })

@@ -10,7 +10,9 @@ import {
   postsMain,
   postsAll,
   postsAside,
+  post,
 } from "../links";
+import React from "react";
 
 export const getMainSliderData = (
   setState: React.Dispatch<SlideProps[]>
@@ -59,4 +61,24 @@ export const getAsidePosts = (setState: eventType[1]): void => {
       setState({ ...res.data, loaded: true });
     })
     .catch();
+};
+
+export const getEvent = (
+  id: string | undefined,
+  setState: eventType[1],
+  setLoader: React.Dispatch<boolean>
+): void => {
+  axios
+    .get(`${post}/${id}?locale=ru`)
+    .then((res) => {
+      setState(res.data.data);
+      setTimeout(() => {
+        setLoader(false);
+      }, 1000);
+    })
+    .catch(() => {
+      setTimeout(() => {
+        setLoader(false);
+      }, 1000);
+    });
 };

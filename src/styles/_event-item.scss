@@ -64,4 +64,28 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
+
+  &.skeleton {
+    span,
+    h2,
+    p {
+      height: 2.2rem;
+      width: 100%;
+      padding: 1rem 0;
+      @include shineLoad;
+    }
+
+    h2 {
+      height: 3rem;
+    }
+
+    .eventitem-content {
+      gap: 2rem;
+    }
+
+    .eventitem-img {
+      height: 50rem;
+      @include shineLoad;
+    }
+  }
 }
