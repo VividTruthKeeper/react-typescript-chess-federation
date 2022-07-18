@@ -5,6 +5,7 @@ import { EventContext } from "./context/LoaderContext";
 
 // Styles
 import "./styles/style.scss";
+import "react-loading-skeleton/dist/skeleton.css";
 
 // Components
 import Nav from "./components/global/Nav";

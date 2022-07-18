@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { v4 as uuidv4 } from "uuid";
+import Skeleton from "react-loading-skeleton";
 
 // Components
 import VideoPlayer from "../global/VideoPlayer";
@@ -14,15 +15,14 @@ import { playerType } from "../../types/playerType";
 // Helpers
 import { getVideos } from "../../helpers/apiRequests";
 import { hosting } from "../../links";
+import { highlightColor } from "../../helpers/otherVariables";
 
 const CalendarSection = () => {
   const [video, setVideo]: playerType = useState("");
   const [videoData, setVideoData]: any = useState();
-  const [placeholder, setPlaceholder]: any = useState();
   useEffect(() => {
     getVideos((res: any) => {
       setVideoData(res);
-      setPlaceholder(res[0].poster);
       setVideo(res[0].video);
     });
   }, []);
@@ -31,7 +31,15 @@ const CalendarSection = () => {
       <div className="container">
         <div className="calendars">
           <div className="calendars-left">
-            <VideoPlayer videoUrl={video} placeholder={placeholder} />
+            {video.length > 1 ? (
+              <VideoPlayer videoUrl={video} />
+            ) : (
+              <Skeleton
+                highlightColor={highlightColor}
+                height={"51.2rem"}
+                style={{ borderRadius: "0.5rem" }}
+              />
+            )}
             <div className="slider-video">
               <Swiper
                 modules={[]}
@@ -47,7 +55,6 @@ const CalendarSection = () => {
                             className="video-slide"
                             onClick={() => {
                               setVideo(vid.video);
-                              setPlaceholder(vid.poster);
                             }}
                           >
                             <img src={hosting + vid.poster} alt="" />
@@ -58,7 +65,11 @@ const CalendarSection = () => {
                   : ["", "", ""].map(() => {
                       return (
                         <SwiperSlide key={uuidv4()}>
-                          <div className="video-slide skeleton"></div>
+                          <Skeleton
+                            highlightColor={highlightColor}
+                            height={"16rem"}
+                            style={{ borderRadius: "0.5rem" }}
+                          />
                         </SwiperSlide>
                       );
                     })}

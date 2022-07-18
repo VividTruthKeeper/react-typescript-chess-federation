@@ -1,6 +1,7 @@
 // Modules
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Skeleton from "react-loading-skeleton";
 
 // Icons
 import left from "../icons/arrow-left-white.svg";
@@ -9,13 +10,13 @@ import right from "../icons/arrow-right-white.svg";
 // Components
 import Event from "../components/global/Event";
 import SectionTitle from "../components/global/SectionTitle";
-import EventSkeleton from "../components/global/EventSkeleton";
 
 // Types
 import { eventType } from "../types/eventProps";
 
 // Helpers
 import { getAllPosts } from "../helpers/apiRequests";
+import { highlightColor } from "../helpers/otherVariables";
 
 const Events = () => {
   // State
@@ -87,41 +88,77 @@ const Events = () => {
                   "",
                   "",
                   "",
-                ].map(() => <EventSkeleton key={uuidv4()} />)}
+                ].map(() => (
+                  <div
+                    key={uuidv4()}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "1rem",
+                    }}
+                  >
+                    <Skeleton
+                      height={"30rem"}
+                      highlightColor={highlightColor}
+                      style={{ borderRadius: "0.5rem" }}
+                    />
+                    <Skeleton height={"2rem"} highlightColor={highlightColor} />
+                    <Skeleton height={"4rem"} highlightColor={highlightColor} />
+                  </div>
+                ))}
           </div>
           <div className="events-page-bottom">
             <div className="events-page-nav">
               <div className="events-page-nav-left">
-                <button
-                  type="button"
-                  className="events-page-btn"
-                  disabled={events.meta.current_page < 2 ? true : false}
-                >
-                  <img src={left} alt="" />
-                </button>
+                {events.data[0].id !== -1 ? (
+                  <button
+                    type="button"
+                    className="events-page-btn"
+                    disabled={events.meta.current_page < 2 ? true : false}
+                  >
+                    <img src={left} alt="" />
+                  </button>
+                ) : (
+                  <Skeleton height={"5rem"} width={"5rem"} />
+                )}
+
                 <span className="event-page-number">
-                  {events.meta.current_page}
+                  {events.meta.current_page > -1 ? (
+                    events.meta.current_page
+                  ) : (
+                    <Skeleton height={"2rem"} width={"2rem"} />
+                  )}
                 </span>
-                <button
-                  type="button"
-                  className="events-page-btn"
-                  disabled={
-                    events.meta.current_page === events.meta.total - 1
-                      ? true
-                      : false
-                  }
-                >
-                  <img src={right} alt="" />
-                </button>
+                {events.data[0].id !== -1 ? (
+                  <button
+                    type="button"
+                    className="events-page-btn"
+                    disabled={
+                      events.meta.current_page === events.meta.total - 1
+                        ? true
+                        : false
+                    }
+                  >
+                    <img src={right} alt="" />
+                  </button>
+                ) : (
+                  <Skeleton height={"5rem"} width={"5rem"} />
+                )}
               </div>
               <div className="events-page-nav-right">
-                <span>{`Всего ${events.meta.total - 1} ${
-                  events.meta.total - 1 === 1
-                    ? "страница"
-                    : events.meta.total - 1 < 5
-                    ? "страницы"
-                    : "страниц"
-                }`}</span>
+                <span>
+                  {events.meta.total > -1 ? (
+                    `Всего ${events.meta.total - 1} ${
+                      events.meta.total - 1 === 1
+                        ? "страница"
+                        : events.meta.total - 1 < 5
+                        ? "страницы"
+                        : "страниц"
+                    }`
+                  ) : (
+                    <Skeleton height={"2rem"} width={"15rem"} />
+                  )}
+                </span>
               </div>
             </div>
           </div>

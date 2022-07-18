@@ -6,14 +6,6 @@
   border-bottom: 0.1rem solid $base-green;
   max-width: 42rem;
   overflow: hidden;
-
-  &.skeleton {
-    border-bottom: none;
-    p {
-      height: 2rem;
-      @include shineLoad;
-    }
-  }
 }
 
 .event-img {
@@ -22,8 +14,6 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-
-  @include shineLoad;
   img {
     width: 100%;
     height: 100%;

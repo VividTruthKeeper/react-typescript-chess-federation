@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import { v4 as uuidv4 } from "uuid";
 import { useState, useEffect } from "react";
+import Skeleton from "react-loading-skeleton";
 
 // Components
 import SectionTitle from "../global/SectionTitle";
@@ -19,8 +20,7 @@ import { partnersType } from "../../types/partnersType";
 
 // Helpers
 import { getPartnerSliderData } from "../../helpers/apiRequests";
-
-// const partnersData: string[] = [tps, samsung, mi, dragon];
+import { highlightColor } from "../../helpers/otherVariables";
 
 const Partners = () => {
   // State
@@ -64,7 +64,14 @@ const Partners = () => {
                 : ["", "", "", "", "", ""].map(() => {
                     return (
                       <SwiperSlide key={uuidv4()}>
-                        <div className="partners-slide skeleton"></div>
+                        <Skeleton
+                          height={"18rem"}
+                          highlightColor={highlightColor}
+                          style={{
+                            borderRadius: "0.5rem",
+                            border: "0.1rem solid #00000033",
+                          }}
+                        />
                       </SwiperSlide>
                     );
                   })}

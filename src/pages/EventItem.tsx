@@ -1,16 +1,15 @@
 // Modules
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
 // Components
 import EventAside from "../components/event_item/EventAside";
 import EventDate from "../components/global/EventDate";
-import EventContentSkeleton from "../components/event_item/EventContentSkeleton";
 
 // Helpers
 import { getEvent } from "../helpers/apiRequests";
-
-// Link
+import { highlightColor } from "../helpers/otherVariables";
 
 const EventItem = () => {
   useEffect(() => {
@@ -35,7 +34,35 @@ const EventItem = () => {
                 <h2>{eventData.title}</h2>
               </div>
             ) : (
-              <EventContentSkeleton />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1rem",
+                }}
+              >
+                <Skeleton highlightColor={highlightColor} height={"2rem"} />
+                <Skeleton highlightColor={highlightColor} height={"4rem"} />
+                <Skeleton
+                  highlightColor={highlightColor}
+                  height={"47.8rem"}
+                  style={{
+                    borderRadius: "0.5rem",
+                    padding: "2.2rem 0 ",
+                    display: "block",
+                  }}
+                />
+                <Skeleton
+                  highlightColor={highlightColor}
+                  count={15}
+                  height={"2rem"}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0",
+                  }}
+                />
+              </div>
             )}
             {eventData && !loader ? (
               <div className="eventitem-bottom">

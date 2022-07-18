@@ -141,12 +141,6 @@
   width: 100%;
   background: #fff;
   border: 0.1rem solid #00000020;
-
-  &.skeleton {
-    @include shineLoad;
-    height: 18rem;
-    width: 100%;
-  }
 }
 
 .rating-inner {
@@ -159,7 +153,6 @@
 .swiper-bg {
   min-height: 140rem;
   width: 100%;
-  @include shineLoad;
 }
 
 .calendars {
@@ -188,11 +181,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  &.skeleton {
-    @include shineLoad;
-    height: 16rem;
   }
 }
 

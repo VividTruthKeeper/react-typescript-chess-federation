@@ -8,10 +8,9 @@ import PlayIcon from "./PlayIcon";
 // Types
 import { playerInterface } from "../../types/playerType";
 
-const VideoPlayer = ({ videoUrl, placeholder }: playerInterface) => {
+const VideoPlayer = ({ videoUrl }: playerInterface) => {
   return (
     <div className="player">
-      {placeholder ? <img src={hosting + placeholder} alt="" /> : ""}
       <ReactPlayer
         url={hosting + videoUrl}
         light

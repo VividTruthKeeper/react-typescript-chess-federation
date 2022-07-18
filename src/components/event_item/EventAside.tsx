@@ -1,13 +1,14 @@
 // Modules
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Skeleton from "react-loading-skeleton";
 
 // Components
 import Event from "../global/Event";
-import EventSkeleton from "../global/EventSkeleton";
 
 // Helpers
 import { getAsidePosts } from "../../helpers/apiRequests";
+import { highlightColor } from "../../helpers/otherVariables";
 
 // Types
 import { eventType } from "../../types/eventProps";
@@ -60,7 +61,24 @@ const EventAside = () => {
                 />
               );
             })
-          : ["", "", "", ""].map(() => <EventSkeleton key={uuidv4()} />)}
+          : ["", "", "", ""].map(() => (
+              <div
+                key={uuidv4()}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "1rem",
+                }}
+              >
+                <Skeleton
+                  highlightColor={highlightColor}
+                  height={"30rem"}
+                  style={{ borderRadius: "0.5rem" }}
+                />
+                <Skeleton highlightColor={highlightColor} height={"2rem"} />
+                <Skeleton highlightColor={highlightColor} height={"4rem"} />
+              </div>
+            ))}
       </div>
     </aside>
   );
